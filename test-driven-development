@@ -1,0 +1,29 @@
+---
+name: test-driven-development
+description: Test-Driven Development (TDD) cycle guidance for robust, maintainable, and verifiable code implementation.
+---
+
+# Test-Driven Development (TDD) Playbook
+
+Follow this discipline to develop reliable features and bug fixes with automated test coverage.
+
+## The Red-Green-Refactor Cycle
+
+### 1. RED (Write a Failing Test)
+- Focus on behavior and contracts, not internal implementation details.
+- Write the smallest possible test case specifying the next unit of behavior.
+- Run the test suite and verify that the test fails **for the expected reason**.
+
+### 2. GREEN (Make It Pass)
+- Write only the minimum amount of code required to make the test pass.
+- Avoid building unrequested abstractions or premature optimizations.
+- Verify that all tests pass cleanly.
+
+### 3. REFACTOR (Clean & Optimize)
+- Improve code readability, eliminate duplication, and enhance naming.
+- Ensure contracts remain unchanged and all tests continue to pass.
+
+## Quality Checklist
+- Tests are fast, isolated, and deterministic (no network/time flakiness).
+- Edge cases are covered: empty inputs, maximum boundaries, error triggers.
+- Mocks are used sparingly—prefer real implementations or lightweight fakes.
