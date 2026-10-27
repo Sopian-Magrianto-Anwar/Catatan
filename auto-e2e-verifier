@@ -1,0 +1,40 @@
+---
+name: auto-e2e-verifier
+description: Autonomously test web features using browser automation (Playwright/Puppeteer), detect console/network errors, auto-fix issues in a loop, and report verified results.
+---
+
+# Autonomous E2E Testing & Auto-Fix Playbook
+
+Apply this protocol when asked to build or test a web feature end-to-end without requiring manual testing from the user.
+
+## Autonomous Workflow
+
+### 1. Implement Feature
+- Write the feature code according to requirements (e.g., Logout button, state clear, redirect).
+
+### 2. Formulate Automated Verification Script
+- Create a lightweight test script (using Playwright, Puppeteer, or Cypress already present in the workspace).
+- Script checklist:
+  - Launch browser / navigate to the target URL.
+  - Set required state (e.g. mock login session or authenticated token/cookies).
+  - Perform user action (e.g. click `#logout-button`).
+  - Assert expected outcomes:
+    - Token/localStorage/session cookie cleared.
+    - URL redirected to `/login` or home.
+    - No uncaught JavaScript errors in browser console.
+    - No 4xx/5xx network failures on logout API request.
+
+### 3. Execution & Auto-Repair Loop
+- Execute the test in background/headless mode.
+- If failure occurs:
+  1. Inspect the stack trace and browser console log.
+  2. Locate the failing component or API handler.
+  3. Apply surgical fix to the application code.
+  4. Re-run the automated test.
+  5. Repeat until 100% green (maximum 3 self-healing iterations).
+
+### 4. User Delivery
+- Once all assertions pass with zero console errors:
+  - Summarize the changes made.
+  - Show the passing test log or screenshot proof.
+  - Inform the user that the feature is ready to use with zero manual effort required.
