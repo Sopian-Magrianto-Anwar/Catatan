@@ -1,0 +1,27 @@
+---
+name: brainstorming
+description: Interactive brainstorming framework to explore design alternatives, refine product concepts, and challenge assumptions before implementation.
+---
+
+# Brainstorming Playbook
+
+Use this framework when exploring new features, framing ambiguous problems, or deciding on technical architectures before writing code.
+
+## Core Principles
+1. **Clarify Intent First**: Pinpoint the underlying problem and user pain point rather than locking onto the first suggested solution.
+2. **Divergent Before Convergent**: Generate at least 3 distinct avenues with explicit trade-offs before choosing one.
+3. **Expose Hidden Assumptions**: Surface constraints, scaling limits, and security boundaries upfront.
+
+## Step-by-Step Workflow
+1. **Define Context & Constraints**:
+   - Primary goal & measurable success criteria.
+   - Non-negotiables (stack, security boundaries, deadlines).
+   - Anti-goals (what we are deliberately NOT solving).
+2. **Explore 3 Approaches**:
+   - **Approach A (Lean/Quick)**: Simplest correct change using existing standard tools.
+   - **Approach B (Idiomatic/Robust)**: Long-term standard architecture with clear separation of concerns.
+   - **Approach C (Decoupled/Modular)**: High extensibility or alternative paradigm.
+3. **Trade-off Evaluation**:
+   - Compare effort, complexity, risk, and reversibility (one-way vs two-way door).
+4. **Handoff**:
+   - Formulate a clear, bite-sized implementation roadmap.
