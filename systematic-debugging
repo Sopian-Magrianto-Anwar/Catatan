@@ -1,0 +1,36 @@
+---
+name: systematic-debugging
+description: Methodical root-cause investigation process to diagnose, reproduce, and resolve software bugs without guesswork.
+---
+
+# Systematic Debugging Playbook
+
+Apply this protocol when encountering unexpected errors, crashes, regression issues, or race conditions.
+
+## Protocol Rules
+- **No speculative fixes**: Never change code hoping it works without identifying the exact failure mechanism.
+- **Reproduce First**: Formulate a reproducible test case or observable trigger before touching production code.
+- **Isolate Variables**: Change one variable at a time to verify assumptions.
+
+## 4-Phase Debugging Process
+
+### Phase 1: Symptom & Evidence Collection
+- Collect exact error messages, stack traces, logs, and environmental details (OS, dependencies, runtime versions).
+- Document recent changes (diffs, configuration changes, dependency upgrades).
+
+### Phase 2: Hypothesis & Isolation
+- Map the data flow from input to failure point.
+- Construct the simplest isolated reproduction (minimal script or failing unit test).
+- Bisect code/commits if the regression timeline is unclear.
+
+### Phase 3: Root-Cause Verification
+- Confirm why the failure occurred under these exact inputs/conditions.
+- Identify whether the root cause is:
+  - Logic/Boundary error (off-by-one, null reference, uncaught promise).
+  - Concurrency/State drift (race condition, stale cache, lock contention).
+  - Environment/Contract mismatch (API drift, missing env var, permission gate).
+
+### Phase 4: Surgical Fix & Regression Guard
+- Apply the minimal idiomatic fix addressing the root cause directly.
+- Add an automated regression test that fails before the fix and passes after.
+- Verify clean execution of surrounding test suites.
