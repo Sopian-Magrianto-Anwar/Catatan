@@ -1,0 +1,35 @@
+---
+name: code-review
+description: Comprehensive, objective code review framework focusing on correctness, security, performance, and maintainability.
+---
+
+# Code Review Playbook
+
+Use this framework to review pull requests, diffs, and architectural changes thoroughly and constructively.
+
+## Review Pillars
+
+### 1. Correctness & Logic
+- Does the change satisfy all requirements and business logic?
+- Are edge cases handled (nulls, empty collections, timeouts, boundary numbers)?
+- Are errors and exceptions caught and logged appropriately without silent failures?
+
+### 2. Security & Compliance
+- **Input Validation**: Are external inputs sanitized and validated?
+- **Authentication & Permissions**: Are access control checks enforced server-side?
+- **Sensitive Data**: Are secrets, tokens, or PII exposed in logs, commits, or client-side bundles?
+- **Dependency Health**: Are new dependencies strictly necessary, reputable, and license-compliant?
+
+### 3. Architecture & Maintainability
+- Is the code structured idiomatically according to the repository's patterns?
+- Are abstractions warranted, or is it over-engineered?
+- Are functions single-purpose, readable, and properly named?
+
+### 4. Performance & Resource Footprint
+- Are there hidden N+1 queries, unindexed lookups, or unbounded loops?
+- Are resources (file handles, database connections, streams) cleaned up?
+- Are large payloads or memory leaks avoided?
+
+### 5. Verification & Testing
+- Do automated tests accompany the change?
+- Do tests verify both the happy path and failure modes?
